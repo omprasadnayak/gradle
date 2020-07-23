@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Vehicle Details</title>
+	<style>
+		body {background-color: powderblue;}
+		h2   {color: blue;}
+	</style>
+</head>
+<body>
+	<div align="center">
+	<h2>Vehicle Details</h2>
+	<div>
+	<form class="horizontal">
+		<table cellspacing="2" cellpadding="2">
+			<tr>
+				<th>Model Id :</th>
+				<td th:text="${vehicle.modelId}"></td>			
+			</tr>
+			<tr>
+				<th>Name :</th>
+				<td th:text="${vehicle.name}"></td>			
+			</tr>
+			<tr>
+				<th>Colour :</th>
+				<td th:text="${vehicle.colour}"></td>			
+			</tr>
+			<tr>
+				<th>Price :</th>
+				<td th:text="${vehicle.price}"></td>			
+			</tr>		
+		</table>
+		
+		</form>
+		<a th:href="${'/Vehicle/modelid/' + vehicle.modelId}"><button>Update</button></a>
+		</div>
+		
+		<br></br>
+		<br></br>
+		
+		
+		<a href="http://localhost:8090/Vehicle/welcome">Home</a>
+	
+	</div>
+
+</body>
+</html>

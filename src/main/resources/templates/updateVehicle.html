@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ 
+    <title>Vehicle Details</title>
+    <style>
+		body {background-color: powderblue;}
+		h2   {color: blue;}
+	</style>
+</head>
+<body>
+<div class="container" align="center">
+	<br></br>
+	<br></br>
+	<br></br>
+ 
+    <h2>Update Vehicle Details</h2>
+    <div >
+        <form th:object="${vehicle}" th:action="@{/Vehicle/vehicle}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{modelId}"/>
+        <div>
+        <label><b>Name :</b></label>
+        <input type="text" th:field="*{name}" required="required"/>
+        </div>
+        <br></br>
+           
+            <div>
+                <label><b>Colour :</b></label>
+               
+                    <input type="text" th:field="*{colour}" list="l1" required="required"/>
+                    <datalist id="l1">
+      				<option>Red</option>
+      				<option>Blue</option>
+      				<option>Green</option>
+      				<option>White</option>
+      				<option>Black</option>
+      				<option>Gray</option>
+      				<option>Brown</option>
+      				<option>Yellow</option>
+    				</datalist>
+               		
+                
+            </div>
+            <br></br>
+			 <div>
+                <label><b>Price :</b></label>
+                    <input type="number" min="20000" th:field="*{price}" required="required"/>
+               
+            </div>
+            <br></br>
+            <div class="row">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <a href="http://localhost:8090/Vehicle/getAll"><button>Cancel</button></a>
+        
+       
+    </div>
+</div>
+ 
+</body>
+</html>

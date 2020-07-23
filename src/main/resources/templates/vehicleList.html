@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Vehicle List</title>
+
+<style>
+body {background-color: powderblue;}
+h2   {color: blue;}
+table {color:blue;}
+</style>
+<script type="text/javascript">
+
+   function changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue ="http://localhost:8090/Vehicle/getByColour/" + selectBox.options[selectBox.selectedIndex].value;
+    window.location=selectedValue;
+   }
+   
+   function updateFunction(){
+    var action_src = "http://localhost:8090/Vehicle/getByPrice/" + document.getElementsByName("price")[0].value;
+    var form = document.getElementById('price');
+    form.action = action_src ;
+}
+
+  </script>
+
+</head>
+<body>
+<div class="container" align="center">
+<h2>Vehicle List</h2>
+<table cellpadding="2" cellspacing="2" border="1">
+	<tr>
+		<th>Model Id</th>
+		<th>Name</th>
+		<th>Colour</th>
+		<th>Price</th>
+		<th>View</th>
+		<th>Update</th>
+		<th>Delete</th>
+	</tr>
+	<tr th:each="vehicle, iterStat : ${vehicleList}">
+		<td th:text="${vehicle.modelId}">Model Id</td>
+		<td th:text="${vehicle.name}">Name</td>
+		<td th:text="${vehicle.colour}">Colour</td>
+		<td th:text="${vehicle.price}">Price</td>
+		<td><a th:href="${'/Vehicle/view/' + vehicle.modelId}"><i>View</i></a></td>
+		<td><a th:href="${'/Vehicle/modelid/' + vehicle.modelId}"><i>Update</i></a></td>
+		<td><a th:href="${'/Vehicle/delete/' + vehicle.id}" onclick="return confirm('Are you sure want to delete?');"><i>Delete</i></a></td>
+		
+	
+	</tr>
+
+
+</table>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<label><i><b>Get By Colour</b></i></label>
+<select id="selectBox" onchange="changeFunc();">
+	<option>Select</option>
+    <option value="Black">Black</option>
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+    <option value="Yellow">Yellow</option>
+    <option value="Gray">Gray</option>
+    <option value="Silver">Silver</option>
+    <option value="Gold">Gold</option>
+    <option value="White">White</option>
+  </select>
+  
+  <form id="price" onsubmit="updateFunction()">
+  <label><i><b>Get By Price</b></i></label>
+  <input type="number" name="price" required="required"/>
+  <input type="submit" value="Enter"/>
+  </form>
+  <br></br>
+  <br></br>
+  <a href="welcome.html">Home</a>
+  <a href="http://localhost:8090/Vehicle/getAll">Get List</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>No Data</title>
+<style>
+body {background-color: powderblue;}
+h1   {color: red;}
+</style>
+</head>
+<body>
+<div align="center">
+<br></br>
+<br></br>
+	<h1 th:text="${errMsg}"></h1>
+	
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<a href="http://localhost:8090/Vehicle/welcome">Home</a>
+<a href="http://localhost:8090/Vehicle/getAll">Get List</a>
+</div>
+</body>
+</html>

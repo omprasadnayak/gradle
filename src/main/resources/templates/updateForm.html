@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Update</title>
+<style>
+body {background-color: powderblue;}
+h3   {color: blue;}
+
+</style>
+<script>
+function updateFunction(){
+    var action_src = "http://localhost:8090/Vehicle/modelid/" + document.getElementsByName("Id")[0].value;
+    var form = document.getElementById('modelId');
+    form.action = action_src ;
+}
+</script>
+</head>
+<body>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<div align="center">
+<h3>Enter the ModelId to Update:</h3>
+	<form id = "modelId" onsubmit="updateFunction()">
+    <input type="number" name="Id" required="required"/>
+    <input type="submit" value="Update"/>
+	</form>
+</div>
+
+
+</body>
+</html>
